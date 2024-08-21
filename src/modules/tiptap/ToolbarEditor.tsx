@@ -247,8 +247,9 @@ export const ToolbarEditor = ({
       >
         <Button aria-label="Options" type="text">
           <Flex align="center" gap={4}>
-            {listText.find((i) => editor.isActive("heading", { level: i?.value }))
-              ?.label || "Normal"}
+            {listText.find((i) =>
+              editor.isActive("heading", { level: i?.value }),
+            )?.label || "Normal"}
             <DropdownIcon />
           </Flex>
         </Button>
@@ -516,7 +517,7 @@ export const ToolbarEditor = ({
         />
       </Tooltip>
 
-      <RenderPreview value={value} />
+      <RenderPreview value={value || editor.getHTML()} />
     </div>
   );
 };
