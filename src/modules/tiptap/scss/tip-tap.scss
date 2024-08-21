@@ -1,0 +1,293 @@
+.rich-editor {
+  border-radius: 6px;
+  border: 1px solid #dfe1e6;
+  padding: 8px;
+
+  & fieldset {
+    border: none;
+  }
+
+  & .tip-tap-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+}
+
+.tiptap {
+  overflow: auto;
+  caret-color: #6a00f5;
+
+  &.ProseMirror {
+    padding: 16px 6px;
+    border-top: 1px solid #dfe1e6;
+    max-height: 400px;
+    min-height: 100px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  :first-child {
+    margin-top: 0;
+  }
+
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+  }
+
+  /* List styles */
+  ul,
+  ol {
+    padding: 0 1rem;
+    margin: 1.25rem 1rem 1.25rem 0.4rem;
+
+    li p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+  }
+
+  /* Heading styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+    margin-top: 2.5rem;
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2 {
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: 1rem;
+  }
+
+  /* Code and preformatted text styles */
+  code {
+    background-color: rgba(88, 5, 255, 0.05);
+    border-radius: 0.4rem;
+    color: #222;
+    font-size: 0.85rem;
+    padding: 0.25em 0.3em;
+  }
+
+  pre {
+    background: #222;
+    border-radius: 0.5rem;
+    color: var(--color-white);
+    font-family: "JetBrainsMono", monospace;
+    margin: 1.5rem 0;
+    padding: 0.75rem 1rem;
+
+    code {
+      background: none;
+      color: inherit;
+      font-size: 0.8rem;
+      padding: 0;
+    }
+  }
+
+  blockquote {
+    border-left: 3px solid rgba(61, 37, 20, 0.12);
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+  }
+
+  mark {
+    background-color: #faf594;
+    border-radius: 0.4rem;
+    box-decoration-break: clone;
+    padding: 0.1rem 0.3rem;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid rgba(61, 37, 20, 0.08);
+    margin: 2rem 0;
+  }
+
+  /* Image */
+  img {
+    display: block;
+    height: auto;
+    margin: 1.5rem 0;
+    max-width: 100%;
+
+    &.ProseMirror-selectednode {
+      outline: 3px solid #6a00f5;
+    }
+
+    & + div {
+      img:first-child {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+
+  // div:has(> div > img) {
+  //   display: inline-flex !important;
+  //   > div {
+  //     display: inline;
+  //   }
+  // }
+
+  /* Table-specific styling */
+  table {
+    border-collapse: collapse;
+    // margin: 0;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    table-layout: fixed;
+    width: 100%;
+
+    td,
+    th {
+      border: 1px solid rgba(61, 37, 20, 0.12);
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 6px 8px;
+      position: relative;
+      vertical-align: top;
+
+      > * {
+        margin-bottom: 0;
+      }
+    }
+
+    th {
+      background-color: rgba(61, 37, 20, 0.08);
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .selectedCell:after {
+      background: rgba(61, 37, 20, 0.08);
+      content: "";
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      pointer-events: none;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .column-resize-handle {
+      background-color: #6a00f5;
+      bottom: -2px;
+      pointer-events: none;
+      position: absolute;
+      right: -2px;
+      top: 0;
+      width: 4px;
+    }
+  }
+
+  .tableWrapper {
+    // margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  &.resize-cursor {
+    cursor: ew-resize;
+    cursor: col-resize;
+  }
+}
+
+.is-active {
+  color: #0052cc !important;
+  background-color: #e6f4ff;
+}
+
+// ---------------------------------------------------------------- For AntD
+.modal {
+  padding: 0;
+
+  .ant-modal-content {
+    padding: 0;
+    // border-radius: 16px 16px;
+
+    .ant-modal-body {
+      .modal-title-wrap {
+        padding: 8px 16px;
+        background-color: var(--color-primary);
+        border-radius: 6px 6px 0px 0px;
+        color: #fff !important;
+
+        h4 {
+          color: #fff;
+          margin: 0;
+        }
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .modal-body {
+        padding: 16px;
+        max-height: calc(100vh - 42px - var(--h-header, 0));
+        overflow: auto;
+        font-size: 14px;
+
+        // .ant-form-item {
+        //   margin: 0;
+        // }
+
+        &:has(.ant-pagination) {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    .ant-modal-footer:has(div) {
+      margin: 0;
+      padding: 8px 16px;
+      border-top: 1px solid var(--color-background-neutral, #dfe1e6);
+      z-index: 100;
+      position: relative;
+
+      button {
+        min-width: 96px;
+      }
+    }
+  }
+
+  &.modal-center {
+    .ant-modal-footer {
+      text-align: center;
+    }
+  }
+
+  height: calc(100vh);
+}

@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - VITE_BASE_URL=https://tasks.aiacademy.edu.vn/api
+    restart: unless-stopped
+    container_name: tasks-management
+    image: tasks-management 
+    ports:
+      - "5015:80"
+    environment:
+      - VITE_BASE_URL=https://tasks.aiacademy.edu.vn/api
