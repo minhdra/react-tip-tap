@@ -234,6 +234,7 @@
 
   .ant-modal-content {
     padding: 0;
+    height: 100vh;
     // border-radius: 16px 16px;
 
     .ant-modal-body {
@@ -289,5 +290,4 @@
     }
   }
 
-  height: 100vh;
 }
