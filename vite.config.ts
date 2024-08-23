@@ -29,12 +29,6 @@ export default defineConfig({
       },
     }),
   ],
-  resolve: {
-    alias: [
-      { find: /^~/, replacement: "" },
-      { find: "@", replacement: "/src" },
-    ],
-  },
   css: {
     // convert .app-header (less) to styles.appHeader (tsx)
     modules: {
@@ -52,14 +46,13 @@ export default defineConfig({
       fileName: (format) => `main.${format}.js`,
     },
     rollupOptions: {
-      external: ["antd", "dayjs", "react", "react-dom"],
+      external: ["antd", "react", "react-dom"],
       output: {
         entryFileNames: "[name].js",
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
           antd: "antd",
-          dayjs: "dayjs",
         },
       },
     },

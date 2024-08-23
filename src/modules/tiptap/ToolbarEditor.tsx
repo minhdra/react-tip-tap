@@ -2,9 +2,8 @@ import { useCurrentEditor } from "@tiptap/react";
 import { Button, Dropdown, Flex, Tooltip, message } from "antd";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { ModalRender } from "@/constant";
-import { useDisclosure } from "@/utils";
-
+import { ModalRender } from "../../constant";
+import { useDisclosure } from "../../utils";
 import {
   BoldIcon,
   BulletListIcon,
@@ -25,7 +24,7 @@ import {
   TextLeftIcon,
   TextRightIcon,
   UndoIcon,
-} from "./IconEditor";
+} from "../icons";
 
 interface Props {
   value?: string;
@@ -148,12 +147,12 @@ export const ToolbarEditor = ({
     inputRef.current?.click();
   };
 
-  // const fileBlob = (data: any) => {
-  //   const blob = new Blob([data], {
-  //     type: data.type,
-  //   });
-  //   return blob;
-  // };
+  const fileBlob = (data: any) => {
+    const blob = new Blob([data], {
+      type: data.type,
+    });
+    return blob;
+  };
 
   const addImage = useCallback(
     async (data: File[]) => {
@@ -170,6 +169,16 @@ export const ToolbarEditor = ({
 
           if (resUpload)
             editor?.chain()?.focus().setImage({ src: resUpload }).run();
+        } else {
+          const url = fileBlob(file);
+          const reader = new FileReader();
+          reader.readAsDataURL(url);
+          reader.onloadend = function render() {
+            const base64data = reader.result?.toString();
+            if (base64data) {
+              editor?.chain().focus().setImage({ src: base64data }).run();
+            }
+          };
         }
 
         setImgLoading(false);

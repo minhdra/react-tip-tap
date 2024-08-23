@@ -1,8 +1,6 @@
 import Color from "@tiptap/extension-color";
-import Document from "@tiptap/extension-document";
 import FontFamily from "@tiptap/extension-font-family";
 import Highlight from "@tiptap/extension-highlight";
-import Image from "@tiptap/extension-image";
 import Table from "@tiptap/extension-table";
 import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
@@ -11,24 +9,31 @@ import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from "@tiptap/extension-text-style";
 import { EditorProvider, Extensions } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import { Typography } from "antd";
 import { useEffect, useRef, useState } from "react";
-import ImageResize from "tiptap-extension-resize-image";
 
-import { extractImgListSrc } from "@/utils";
-
+import "../../assets/scss/tip-tap.scss";
+import { extractImgListSrc } from "../../utils";
+import { Image } from "../extensions/image";
 import { ToolbarEditor } from "./ToolbarEditor";
-import "./scss/tip-tap.scss";
 
 interface Props {
+  /** Should use state to watch error
+   * @example Form.useWatch("error", form)
+   */
   error?: string;
   disabled?: boolean;
-  required?: boolean;
-  ellipsis?: boolean;
   onChange?: (value?: string) => void;
+  /** Use it if you not use form instance */
   value?: string;
+  /** @default true */
   tableResize?: boolean;
+  /** This function to delete file from your server, single file at once */
   deleteFile?: ({ link }: { link: string }) => Promise<any>;
+  /**
+   * This function to upload file image to your server, single file at once
+   *
+   * If you not server, default is base64 format
+   */
   handleUploadImage?: (file: File) => Promise<string | undefined>;
 }
 
@@ -36,7 +41,7 @@ const CustomTableCell = TableCell.extend({
   addAttributes() {
     return {
       // extend the existing attributes …
-      ...this.parent?.(),
+      ...this?.parent?.(),
 
       // and add a new one …
       backgroundColor: {
@@ -65,7 +70,7 @@ export const TipEditor = (props: Props) => {
     Highlight,
     TextStyle,
     Color,
-    Document,
+    // Document,
     Table.configure({
       resizable: tableResize,
     }),
@@ -73,20 +78,16 @@ export const TipEditor = (props: Props) => {
       allowBase64: true,
       // inline: true,
     }),
-    ImageResize.configure({
-      // inline: true,
-      allowBase64: true,
-    }),
     // TableCell,
     TableHeader,
     TableRow,
 
     CustomTableCell,
   ];
-  const contentRef = useRef(value);
+  const contentRef = useRef(value || "");
   const [border, setBorder] = useState("");
   const handleInput = (style: any) => {
-    if (error && !disabled) {
+    if (error && error === "<p></p>" && !disabled) {
       setBorder("error");
     } else {
       setBorder(style);
@@ -104,9 +105,8 @@ export const TipEditor = (props: Props) => {
   }, [error]);
 
   return (
-    <div className="input-rich-container rich-editor">
+    <div className={`input-rich-container rich-editor ${border}`}>
       <fieldset
-        className={border}
         onFocusCapture={() => handleInput("active")}
         onBlur={() => handleInput("")}
       >
@@ -149,9 +149,9 @@ export const TipEditor = (props: Props) => {
           }}
         />
       </fieldset>
-      {!disabled && error && (
+      {/* {!disabled && error && (
         <Typography.Text type="danger">{error}</Typography.Text>
-      )}
+      )} */}
     </div>
   );
 };

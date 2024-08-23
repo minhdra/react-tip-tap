@@ -1,1 +1,1 @@
-export { TipEditor } from "@/modules/tiptap";
+export { TipEditor } from "./modules/tiptap";

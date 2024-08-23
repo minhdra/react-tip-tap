@@ -34,8 +34,6 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-prettier": "^5.1.2",
     "globals": "^15.6.0",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.0",
     "prettier": "^3.1.1",
     "sass": "^1.69.5",
     "typescript": "^5.2.2",
@@ -43,16 +41,7 @@
     "vite-plugin-dts": "^4.0.3",
     "vite-plugin-lib-inject-css": "^2.1.1"
   },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "eslint --fix"
-    ],
-    "src/**/*.{ts,tsx,css,json,scss}": [
-      "prettier --write"
-    ]
-  },
   "dependencies": {
-    "@tabler/icons-react": "^3.6.0",
     "@tiptap/extension-color": "^2.4.0",
     "@tiptap/extension-document": "^2.4.0",
     "@tiptap/extension-font-family": "^2.6.4",
@@ -66,12 +55,10 @@
     "@tiptap/extension-text-style": "^2.4.0",
     "@tiptap/pm": "^2.4.0",
     "@tiptap/react": "^2.4.0",
-    "@tiptap/starter-kit": "^2.4.0",
-    "tiptap-extension-resize-image": "^1.1.7"
+    "@tiptap/starter-kit": "^2.4.0"
   },
   "peerDependencies": {
     "antd": "^5.20.2",
-    "dayjs": "^1.11.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }

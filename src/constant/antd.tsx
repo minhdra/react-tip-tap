@@ -8,7 +8,7 @@ export const ModalRender = (props: ModalProps) => {
       closable={false}
       okText={"Save"}
       cancelText={"Cancel"}
-      className="modal"
+      className="modal-tip-tap"
       okButtonProps={{
         className: "btn btn-primary",
         style: {
@@ -22,7 +22,7 @@ export const ModalRender = (props: ModalProps) => {
         },
       }}
       footer={(child) => {
-        const isCenter = props.className?.includes("modal-center");
+        const isCenter = props.className?.includes("modal-tip-tap-center");
         return (
           <Flex
             justify={isCenter ? "center" : "flex-end"}

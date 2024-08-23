@@ -1,25 +1,29 @@
-import {
-  IconAlignCenter,
-  IconAlignJustified,
-  IconAlignLeft,
-  IconAlignRight,
-  IconArrowBackUp,
-  IconArrowBarDown,
-  IconArrowForwardUp,
-  IconBold,
-  IconChevronDown,
-  IconClearFormatting,
-  IconEye,
-  IconHighlight,
-  IconItalic,
-  IconLineHeight,
-  IconList,
-  IconListNumbers,
-  IconPhotoPlus,
-  IconSeparatorHorizontal,
-  IconStrikethrough,
-  IconTable,
-} from "@tabler/icons-react";
+// import {
+//   IconAlignCenter,
+//   IconAlignJustified,
+//   IconAlignLeft,
+//   IconAlignRight,
+//   IconArrowBackUp,
+//   IconArrowBarDown,
+//   IconArrowForwardUp,
+//   IconBold,
+//   IconChevronDown,
+//   IconClearFormatting,
+//   IconEye,
+//   IconHighlight,
+//   IconItalic,
+//   IconLetterL,
+//   IconLetterM,
+//   IconLetterS,
+//   IconLineHeight,
+//   IconList,
+//   IconListNumbers,
+//   IconPhotoPlus,
+//   IconSeparatorHorizontal,
+//   IconStrikethrough,
+//   IconTable,
+//   IconTrash,
+// } from "@tabler/icons-react";
 
 export const UndoIcon = () => {
   return <IconArrowBackUp size={16} />;
@@ -100,3 +104,27 @@ export const ClearFormatIcon = () => {
 export const PreviewIcon = () => {
   return <IconEye size={16} color="#222" />;
 };
+
+export const TrashIcon = () => {
+  return <IconTrash size={16} />;
+};
+
+export const SLetterIcon = () => {
+  return <IconLetterS size={16} />;
+};
+
+export const MLetterIcon = () => {
+  return <IconLetterM size={16} />;
+};
+
+export const LLetterIcon = () => {
+  return <IconLetterL size={16} />;
+};
+
+// export const TrashIcon = () => {
+//   return <IconTrash size={16} />;
+// };
+
+// export const TrashIcon = () => {
+//   return <IconTrash size={16} />;
+// };
