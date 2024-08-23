@@ -1,7 +1,7 @@
 {
   "name": "@minhdra/react-tip-tap",
   "license": "MIT",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "publishConfig": {
     "access": "public"
   },

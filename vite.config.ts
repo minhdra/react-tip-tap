@@ -15,6 +15,8 @@ export default defineConfig({
       exclude: [
         "./src/constant",
         "./src/utils",
+        "./src/modules/icons",
+        "./src/modules/extensions",
         "./src/modules/tiptap/IconEditor.tsx",
         "./src/modules/tiptap/ToolbarEditor.tsx",
       ],
