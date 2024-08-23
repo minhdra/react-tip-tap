@@ -22,3 +22,4 @@ export * from "./TextLeftIcon";
 export * from "./TextRightIcon";
 export * from "./TrashIcon";
 export * from "./UndoIcon";
+export * from "./XIcon";

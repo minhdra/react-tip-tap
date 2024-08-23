@@ -1,5 +1,6 @@
-import { IconCircleX } from "@tabler/icons-react";
 import { Flex, Modal, ModalProps, Typography } from "antd";
+
+import { XIcon } from "../modules/icons";
 
 export const ModalRender = (props: ModalProps) => {
   return (
@@ -42,7 +43,7 @@ export const ModalRender = (props: ModalProps) => {
         <Typography.Title level={4}>{props.title}</Typography.Title>
 
         <span style={{ cursor: "pointer" }} onClick={props.onCancel}>
-          <IconCircleX />
+          <XIcon />
         </span>
       </Flex>
       <div className="modal-body">{props.children}</div>
