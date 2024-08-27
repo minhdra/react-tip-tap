@@ -510,6 +510,9 @@ export const ToolbarEditor = ({
 
       <input
         type="file"
+        onClick={() => {
+          if (inputRef.current) inputRef.current.value = "";
+        }}
         onChange={(event: any) => addImage(event.target.files)}
         ref={inputRef}
         hidden

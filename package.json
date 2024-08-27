@@ -1,7 +1,7 @@
 {
   "name": "@minhdra/react-tip-tap",
   "license": "MIT",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "publishConfig": {
     "access": "public"
   },
@@ -9,6 +9,7 @@
   "files": [
     "dist"
   ],
+  "keywords": ["tiptap", "tiptap-react", "tiptap-antd"],
   "types": "./dist/main.d.ts",
   "module": "./dist/main.js",
   "exports": "./dist/main.js",
